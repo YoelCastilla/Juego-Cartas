@@ -1,3 +1,23 @@
 *{
-
+width: 100%;
+}
+.container{
+	width: 100%; 
+	padding: auto; 
+	display: grid; 
+	grid-template-columns: repeat(5, 200px);
+	
+	grid-template-areas: "uno dos tres listado listado"
+						 "cuatro cinco seis listado listado"
+						 "siete ocho nueve listado listado "
+						 "diez once doce registro registro"
+						 "trece  registro registro"	
+} 
+.uno{
+	grid-column: 1 / 2;
+	grid-row: 1 / 2; 
+}
+.dos {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3; 
 }

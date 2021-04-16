@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="">
 		<header >
 			<div >
 				<div> 
@@ -16,98 +16,120 @@
 				</div>
 			</div>
 		</header>
-		<div >	
-			<div >
+		<div class="container">	
+			<div class="cartas">
 				<div >
-					<div >
-						<img  src="img/1.png" />
+					<div class="uno" >
+						<img   src="img/1.png" />
 					</div>
-					<div >
-						<img src="img/2.png" />
+					<div class="dos">
+						<img  src="img/2.png" />
 					</div>
-					<div >
-						<img  src="img/3.png" />
+					<div class="tres">
+						<img   src="img/3.png" />
 					</div>
-					<div >
-						<img src="img/4.png" />
+					<div class="cuatro">
+						<img  src="img/4.png" />
 					</div>
-					<div >
-						<img src="img/5.png" />
-					</div>
-						<img src="img/6.png" />
-					</div>
-					<div >
-						<img src="img/7.png" />
-					</div>
-					<div >
-						<img src="img/8.png" />
-					</div>
-					<div >
-						<img src="img/9.png" />
-					</div>
-					<div >
-						<img src="img/10.png" />
-					</div>
-					<div>
-						<img src="img/11.png" />
-					</div>
-					<div >
-						<img src="img/12.png" />
-					</div>
-					<div>
-						<img src="img/13.png" />
-					</div>
+					<div class="cinco">
+						<img  src="img/5.png" />
+					</div class="seis">
+					<img  src="img/6.png" />
+				</div>
+				<div class="siete">
+					<img  src="img/7.png" />
+				</div>
+				<div class="ocho">
+					<img  src="img/8.png" />
+				</div>
+				<div class="nueve">
+					<img  src="img/9.png" />
+				</div>
+				<div class="diez">
+					<img  src="img/10.png" />
+				</div>
+				<div  class="once">
+					<img src="img/11.png" />
+				</div>
+				<div class="doce">
+					<img  src="img/12.png" />
+				</div>
+				<div class="trece">
+					<img  src="img/13.png" />
 				</div>
 			</div>
-			<aside class="col-12 col-md-4">
-
-				<section class="col-12">
-					<h2>Listado de Cartas</h2>
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col">#</th>
-								<th scope="col">Carta</th>
-								<th scope="col">Cant</th>
-							</tr>
-						</thead>
-						<tbody id="listado">
-							<tr>
-								<th scope="row"></th>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<th scope="row"></th>
-								<td></td>
-								<td></td>
-							</tr>
-							<tr>
-								<th scope="row"></th>
-								<td></td>
-								<td></td>
-							</tr>
-						</tbody>
-					</table>
-
-				</section>
-				<section class="col-12">
-					<h2>Registro de Cartas</h2>
-					<form>
-						<div >
-							<label>Numero</label>
-							<input type="text" id="numero" class="form-control" id="inputNum" aria-describedby="emailHelp" placeholder="Ingrese el numero">
-							<small id="emailHelp" class="form-text text-muted">Debe ingresar un numero del 1 al 13</small>
-						</div>
-						<div class="form-group">
-							<label for="inputCarta">Carta</label>
-							<input type="text" id="carta" class="form-control" id="inputCarta" placeholder="Descripcion de la carta">
-						</div>
-						<button type="button" id="registrar" class="btn btn-primary">Guardar</button>
-					</form>
-				</section>
-			</aside>
 		</div>
+		<aside class="col-12 col-md-4">
+
+			<section class="listado">
+				<h2>Listado de Cartas</h2>
+				<table id="tabla">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Carta</th>
+							<th scope="col">Cant</th>
+						</tr>
+					</thead>
+				</table>
+
+			</section>
+			<section class="registro">
+				<h2>Registro de Cartas</h2>
+				<form>
+					<div >
+						<label>Numero</label>
+						<input type="text" id="numero" class="form-control" id="inputNum" aria-describedby="emailHelp" placeholder="Ingrese el numero">
+						<small id="emailHelp" class="form-text text-muted">Debe ingresar un numero del 1 al 13</small>
+					</div>
+					<div class="form-group">
+						<label for="inputCarta">Carta</label>
+						<input type="text" id="carta" class="form-control" id="inputCarta" placeholder="Descripcion de la carta">
+					</div>
+					<button type="button" id="registrar" >Guardar</button>
+				</form>
+			</section>
+		</aside>
 	</div>
+</div>
 </body>
+<script  type="text/javascript" charset="utf-8" async defer>
+	
+	function cargarCartas(){
+
+			var url = "https://carlosreneas.github.io/endpoints/cartas.json"
+
+			fetch(url)
+			.then(response => response.json())
+			.then(data => generarTabla(data))
+			.catch(error => {
+
+			})
+		}
+		function generarTabla(json){
+
+			const tabla = document.getElementById("tabla");
+	JSON.data.forEach(carta => {
+
+				const tr = document.createElement("tr");
+
+				const tdNumero = document.createElement("td");
+				tdNumero.textContent = carta.numero;
+				tr.appendChild(tdNumero); 
+
+				const tdCarta = document.createElement("td");
+				tdCarta.textContent = carta.carta;
+				tr.appendChild(tdCarta);
+
+				const tdValor = document.createElement("td");
+				tdValor.textContent = carta.valor;
+				tr.appendChild(tdValor);
+
+				tabla.tBodies[0].appendChild(tr);
+			});
+
+		}
+		document.getElementById("registrar").onclick = generarTabla 
+
+</script>
 </html>
