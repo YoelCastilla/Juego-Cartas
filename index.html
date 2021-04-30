@@ -2,134 +2,104 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Juego de Cartas</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
+	<div class="contenedor">
+		<header class="header">
+			<img  id="logo" src="img/logo.png" alt="">
+		</header><!-- /header -->
 
-	<div class="">
-		<header >
-			<div >
-				<div> 
-					<img class="img-logo" src="img/logo.png">
-				</div>
-			</div>
-		</header>
-		<div class="container">	
-			<div class="cartas">
-				<div >
-					<div class="uno" >
-						<img   src="img/1.png" />
-					</div>
-					<div class="dos">
-						<img  src="img/2.png" />
-					</div>
-					<div class="tres">
-						<img   src="img/3.png" />
-					</div>
-					<div class="cuatro">
-						<img  src="img/4.png" />
-					</div>
-					<div class="cinco">
-						<img  src="img/5.png" />
-					</div class="seis">
-					<img  src="img/6.png" />
-				</div>
-				<div class="siete">
-					<img  src="img/7.png" />
-				</div>
-				<div class="ocho">
-					<img  src="img/8.png" />
-				</div>
-				<div class="nueve">
-					<img  src="img/9.png" />
-				</div>
-				<div class="diez">
-					<img  src="img/10.png" />
-				</div>
-				<div  class="once">
-					<img src="img/11.png" />
-				</div>
-				<div class="doce">
-					<img  src="img/12.png" />
-				</div>
-				<div class="trece">
-					<img  src="img/13.png" />
-				</div>
-			</div>
-		</div>
-		<aside class="col-12 col-md-4">
+		<div><input type="image"  class="im_1"  src="img/1.png" ></div>
+		<div><input type="image"  class="im_2"  src="" ></div>
+		<div><input type="image"  class="im_3"  src="img/3.png" ></div>
+		<div><input type="image"  class="im_4"  src="img/4.png" ></div>
+		<div><input type="image"  class="im_5"  src="img/5.png" ></div>
+		<div><input type="image"  class="im_6"  src="" ></div>
+		<div><input type="image"  class="im_7"  src="img/7.png" ></div>
+		<div><input type="image"  class="im_8"  src="img/8.png" ></div>
+		<div><input type="image"  class="im_9"  src="img/9.png" ></div>
+		<div><input type="image"  class="im_10" src="" ></div>
+		<div><input type="image"  class="im_11" src="img/11.png" ></div>
+		<div><input type="image"  class="im_12" src="img/12.png" ></div>
+		<div><input type="image"  class="im_13" src="img/13.png" ></div>
+		
+		<div class="tabla">
+			<table>
+				<thead>
+					<tr>
+						<th>Número</th>
+						<th>Carta</th>
+						<th>Cantidad</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>data</td>
+						<td>data</td>
+						<td>data</td>
+					</tr>
+				</tbody>
+			</table>
+		</table>
+	</div>
 
-			<section class="listado">
-				<h2>Listado de Cartas</h2>
-				<table id="tabla">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Carta</th>
-							<th scope="col">Cant</th>
-						</tr>
-					</thead>
-				</table>
+	<div class="tiny_form">
+		<form action="" method="get" accept-charset="utf-8">
+			<h2>Registro de Cartas</h2>
 
-			</section>
-			<section class="registro">
-				<h2>Registro de Cartas</h2>
-				<form>
-					<div >
-						<label>Numero</label>
-						<input type="text" id="numero" class="form-control" id="inputNum" aria-describedby="emailHelp" placeholder="Ingrese el numero">
-						<small id="emailHelp" class="form-text text-muted">Debe ingresar un numero del 1 al 13</small>
-					</div>
-					<div class="form-group">
-						<label for="inputCarta">Carta</label>
-						<input type="text" id="carta" class="form-control" id="inputCarta" placeholder="Descripcion de la carta">
-					</div>
-					<button type="button" id="registrar" >Guardar</button>
-				</form>
-			</section>
-		</aside>
+			<h4>Número</h4>
+			<input class="entradas" type="text" name="" placeholder="Número de carta" value="">
+			<h4>Carta</h4>
+			<input class="entradas" type="text" placeholder="Tipo carta" name="">
+			<input  class="boton" type="button" name="" value="GUARDAR CARTA">
+		</form>	
 	</div>
 </div>
-</body>
-<script  type="text/javascript" charset="utf-8" async defer>
+
+<script src="" type="text/javascript" charset="utf-8" async defer>
 	
-	function cargarCartas(){
+	function cargarTablaCartas(){
 
-			var url = "https://carlosreneas.github.io/endpoints/cartas.json"
+		var url = "https://carlosreneas.github.io/endpoints/cartas.json"
 
-			fetch(url)
-			.then(response => response.json())
-			.then(data => generarTabla(data))
-			.catch(error => {
+		fetch(url)
+		.then(response => response.json())
+		.then(data => generarTabla(data))
+		.catch(error => {
 
-			})
-		}
-		function generarTabla(json){
+		})
+	}
 
-			const tabla = document.getElementById("tabla");
-	JSON.data.forEach(carta => {
 
-				const tr = document.createElement("tr");
+	function generarTabla(json){
 
-				const tdNumero = document.createElement("td");
-				tdNumero.textContent = carta.numero;
-				tr.appendChild(tdNumero); 
+		const tabla = document.getElementById("tabla");
 
-				const tdCarta = document.createElement("td");
-				tdCarta.textContent = carta.carta;
-				tr.appendChild(tdCarta);
+		json.cartas.forEach(carta => {
 
-				const tdValor = document.createElement("td");
-				tdValor.textContent = carta.valor;
-				tr.appendChild(tdValor);
+			const tr = document.createElement("tr");
 
-				tabla.tBodies[0].appendChild(tr);
-			});
+			const tdNumero = document.createElement("td");
+			tdNumero.textContent = carta.numero;
+			tr.appendChild(tdNumero); 
 
-		}
-		document.getElementById("registrar").onclick = generarTabla 
+			const tdCarta = document.createElement("td");
+			tdCarta.textContent = carta.carta;
+			tr.appendChild(tdCarta);
 
+			const tdValor = document.createElement("td");
+			tdValor.textContent = carta.valor;
+			tr.appendChild(tdValor);
+
+			tabla.tBodies[0].appendChild(tr);
+		});
+		console.generarTabla(url);
+
+	}
 </script>
+</body>
 </html>
