@@ -4,6 +4,7 @@
 	<title>Login</title>
 	<meta charset="utf-8">
 	<title>Login </title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/login_styles.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -14,16 +15,47 @@
 			<img  	 src="../img/logo.png" alt="">
 		</header><!-- /header -->
 		<div class="form">
-		<form action="" method="get" accept-charset="utf-8">
-			<h1>Inicio de Sesión</h1>
+			<form action="" id="formulario" method="POST" accept-charset="utf-8">
+				<h1>Inicio de Sesión</h1>
 
-			<h4>Usuario</h4>
-			<input class="entradas" type="text" name="" placeholder="Ingrese su Usuario" value="">
-			<h4>Contraseña</h4>
-			<input class="entradas" type="text" placeholder="Ingrese su Contraseña" name="">
-			<input  class="boton" type="button" name="" value="INGRESAR">
+				<h4>Usuario</h4>
+				<input class="entradas" type="text" name="" id="usuario" placeholder="Ingrese su Usuario" value="">
+				<h4>Contraseña</h4>
+				<input class="entradas" type="password" placeholder="Ingrese su Contraseña" name="" id="contraseña">
+				<input  class="boton" type="submit" name="" value="INGRESAR" id="btn-ing">
 
-		</form>	
-	</div>
+			</form>	
+		</div>
+		<script src="" type="text/javascript" charset="utf-8">
+			$(document).ready(function(){    
+				$('#btn-ing').click(function(){        
+
+					var usuario = document.getElementById("usuario");
+					var contraseña = document.getElementById("contraseña");
+
+					localStorage.setItem("Usuario", usuario);
+					localStorage.setItem("Contraseña", contraseña);
+				});   
+			});
+
+			$(document).ready(function(){
+				$('#btn-ing').submit(function(){
+					var usuario = localStorage.getItem("Usuario");
+					var contraseña = localStorage.getItem("Contraseña");
+
+					if(usuario === 'admin'){
+						if(contraseña === 1234){
+							window.location = 'index.html';
+						}else{
+							alert("Clave Incorrecta");
+						}
+					}else{
+						alert("Usuario incorrecto");
+					}		
+				});
+						
+			});
+
+		</script>
 	</body>
 	</html>
