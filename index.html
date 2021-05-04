@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+
 </head>
 <body>
 	<div class="contenedor">
@@ -14,21 +15,21 @@
 		</header><!-- /header -->
 
 		<div><input type="image"  class="im_1"  src="img/1.png" ></div>
-		<div><input type="image"  class="im_2"  src="" ></div>
+		<div><input type="image"  class="im_2"  src="img/2.png" ></div>
 		<div><input type="image"  class="im_3"  src="img/3.png" ></div>
 		<div><input type="image"  class="im_4"  src="img/4.png" ></div>
 		<div><input type="image"  class="im_5"  src="img/5.png" ></div>
-		<div><input type="image"  class="im_6"  src="" ></div>
+		<div><input type="image"  class="im_6"  src="img/6.png" ></div>
 		<div><input type="image"  class="im_7"  src="img/7.png" ></div>
 		<div><input type="image"  class="im_8"  src="img/8.png" ></div>
 		<div><input type="image"  class="im_9"  src="img/9.png" ></div>
-		<div><input type="image"  class="im_10" src="" ></div>
+		<div><input type="image"  class="im_10" src="img/10.png" ></div>
 		<div><input type="image"  class="im_11" src="img/11.png" ></div>
 		<div><input type="image"  class="im_12" src="img/12.png" ></div>
 		<div><input type="image"  class="im_13" src="img/13.png" ></div>
 		
 		<div class="tabla">
-			<table>
+			<table >
 				<thead>
 					<tr>
 						<th>Número</th>
@@ -36,15 +37,11 @@
 						<th>Cantidad</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="table">
 					<tr>
-						<td>data</td>
-						<td>data</td>
-						<td>data</td>
 					</tr>
 				</tbody>
 			</table>
-		</table>
 	</div>
 
 	<div class="tiny_form">
@@ -52,54 +49,14 @@
 			<h2>Registro de Cartas</h2>
 
 			<h4>Número</h4>
-			<input class="entradas" type="text" name="" placeholder="Número de carta" value="">
+			<input class="entradas" type="text" name="" id="numero" placeholder="Número de carta" value="">
 			<h4>Carta</h4>
-			<input class="entradas" type="text" placeholder="Tipo carta" name="">
-			<input  class="boton" type="button" name="" value="GUARDAR CARTA">
+			<input class="entradas" type="text" placeholder="Tipo carta" name="" id="carta">
+			<input  class="boton" onclick="caputraDatos()" type="button" name="" value="GUARDAR CARTA">
 		</form>	
 	</div>
 </div>
 
-<script src="" type="text/javascript" charset="utf-8" async defer>
-	
-	function cargarTablaCartas(){
-
-		var url = "https://carlosreneas.github.io/endpoints/cartas.json"
-
-		fetch(url)
-		.then(response => response.json())
-		.then(data => generarTabla(data))
-		.catch(error => {
-
-		})
-	}
-
-
-	function generarTabla(json){
-
-		const tabla = document.getElementById("tabla");
-
-		json.cartas.forEach(carta => {
-
-			const tr = document.createElement("tr");
-
-			const tdNumero = document.createElement("td");
-			tdNumero.textContent = carta.numero;
-			tr.appendChild(tdNumero); 
-
-			const tdCarta = document.createElement("td");
-			tdCarta.textContent = carta.carta;
-			tr.appendChild(tdCarta);
-
-			const tdValor = document.createElement("td");
-			tdValor.textContent = carta.valor;
-			tr.appendChild(tdValor);
-
-			tabla.tBodies[0].appendChild(tr);
-		});
-		console.generarTabla(url);
-
-	}
-</script>
+<script src="js/script.js"></script>
 </body>
 </html>
