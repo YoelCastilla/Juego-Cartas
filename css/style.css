@@ -100,8 +100,8 @@
 .contenedor	.tabla{
 	grid-column: 5 / 7;
 	grid-row: 2 / 4;
-	margin: 150px auto;
-	width: 400px;
+	margin: auto;
+	width: 100%;
 }
 .contenedor .tiny_form{
 	grid-column: 5 / 7;
@@ -117,7 +117,7 @@ table{
 }
 th, td{
 	border: solid 1px black;
-	padding: 20px;
+	padding: 10px;
 
 }
 thead{
